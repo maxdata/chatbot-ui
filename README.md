@@ -44,10 +44,6 @@ brew install supabase/tap/supabase
 supabase start
 ```
 
-### 4. Install Ollama (for local models)
-
-Follow the instructions [here](https://github.com/jmorganca/ollama#macos).
-
 ### 5. Fill in secrets
 
 1. .env

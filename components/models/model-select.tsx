@@ -142,8 +142,7 @@ export const ModelSelect: FC<ModelSelectProps> = ({
           {Object.entries(groupedModels).map(([provider, models]) => {
             const filteredModels = models
               .filter(model => {
-                if (tab === "hosted") return model.provider !== "ollama"
-                if (tab === "local") return model.provider === "ollama"
+                if (tab === "hosted") return true
               })
               .filter(model =>
                 model.modelName.toLowerCase().includes(search.toLowerCase())

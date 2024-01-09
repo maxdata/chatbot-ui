@@ -107,10 +107,6 @@ export const GlobalState: FC<GlobalStateProps> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    if (window.location.hostname === "localhost") {
-      fetchOllamaModels()
-    }
-
     fetchStartingData()
   }, [])
 
@@ -234,17 +230,6 @@ export const GlobalState: FC<GlobalStateProps> = ({ children }) => {
 
     const promptData = await getPromptWorkspacesByWorkspaceId(workspaceId)
     setPrompts(promptData.prompts)
-
-    setLoading(false)
-  }
-
-  const fetchOllamaModels = async () => {
-    setLoading(true)
-
-    const response = await fetch("/api/localhost/ollama")
-    const data = await response.json()
-    const localModels: LLM[] = data.localModels
-    setAvailableLocalModels(localModels)
 
     setLoading(false)
   }
