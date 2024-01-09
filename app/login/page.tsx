@@ -25,8 +25,12 @@ export default async function Login({
       }
     }
   )
-  const session = (await supabase.auth.getSession()).data.session
+  // console.log("🚀 ~ supabase:", supabase)
 
+  const session = (await supabase.auth.getSession()).data.session
+  console.log("🚀 ~ session:", session)
+
+  // return redirect("/chat")
   if (session) {
     return redirect("/chat")
   }
@@ -45,6 +49,7 @@ export default async function Login({
     })
 
     if (error) {
+      console.log("🚀 ~ signIn ~ error:", error)
       return redirect("/login?message=Could not authenticate user")
     }
 
@@ -64,12 +69,14 @@ export default async function Login({
       email,
       password,
       options: {
-        // TODO: USE IF YOU WANT TO SEND EMAIL VERIFICATION, ALSO CHANGE TOML FILE
+        // TODO: USE IF YOU WANT TO SEND EMAIL VERIFICATION,
+        // ALSO CHANGE TOML FILE
         // emailRedirectTo: `${origin}/auth/callback`
       }
     })
 
     if (error) {
+      console.log("🚀 ~ signUp ~ error:", error)
       return redirect("/login?message=Could not authenticate user")
     }
 
