@@ -10,7 +10,6 @@ import {
   handleCreateChat,
   handleCreateMessages,
   handleHostedChat,
-  handleLocalChat,
   handleRetrieval,
   validateChatSettings
 } from "../chat-helpers"
