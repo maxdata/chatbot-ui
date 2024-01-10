@@ -16,7 +16,11 @@ export default function ChatLayout({ children }: ChatLayoutProps) {
 
   useEffect(() => {
     ;(async () => {
-      const session = (await supabase.auth.getSession()).data.session
+      // const session = (await supabase.auth.getSession()).data.session
+      // TODO: use ghost session
+      let session = {
+        user: "abc"
+      }
 
       if (!session) {
         router.push("/login")

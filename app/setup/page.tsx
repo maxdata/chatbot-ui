@@ -254,7 +254,12 @@ export default function SetupPage() {
 
   useEffect(() => {
     ;(async () => {
-      const session = (await supabase.auth.getSession()).data.session
+      // const session = (await supabase.auth.getSession()).data.session
+      let session = {
+        user: {
+          id: "abc"
+        }
+      }
 
       if (!session) {
         router.push("/login")
